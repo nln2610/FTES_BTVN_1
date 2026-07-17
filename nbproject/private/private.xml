@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/TITV_PRJ/FTES_Buoi3/web/META-INF/context.xml</file>
-            <file>file:/D:/TITV_PRJ/FTES_Buoi3/src/java/controller/LoginServlet.java</file>
-            <file>file:/D:/TITV_PRJ/FTES_Buoi3/src/java/model/User.java</file>
-            <file>file:/D:/TITV_PRJ/FTES_Buoi3/src/java/dal/UserDAO.java</file>
-            <file>file:/D:/TITV_PRJ/FTES_Buoi3/web/index.jsp</file>
+            <file>file:/D:/TITV_PRJ/FTES_Buoi3/web/home.jsp</file>
+            <file>file:/D:/TITV_PRJ/FTES_Buoi3/src/java/model/Users.java</file>
+            <file>file:/D:/TITV_PRJ/FTES_Buoi3/src/java/dal/OrderDAO.java</file>
+            <file>file:/D:/TITV_PRJ/FTES_Buoi3/src/java/dal/DBContext.java</file>
         </group>
     </open-files>
 </project-private>

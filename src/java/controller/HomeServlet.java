@@ -4,21 +4,24 @@
  */
 package controller;
 
-import dal.UserDAO;
+import dal.OrderDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Order;
 
 /**
  *
  * @author lamng
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/process"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "HomeServlet", urlPatterns = {"/home"})
+public class HomeServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,7 +35,7 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -47,7 +50,11 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        OrderDAO dao = new OrderDAO();
+        List<Order> list = dao.getListOrder();
+        
+        request.setAttribute("LIST", list);
+        request.getRequestDispatcher("home.jsp").forward(request, response);
     }
 
     /**
@@ -61,21 +68,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String username = request.getParameter("txtUsername");
-        String password = request.getParameter("txtPassword");
-        
-        UserDAO dao = new UserDAO();
-        boolean login = dao.login(username, password);
-        
-        String msg = "";
-        if(login){
-            request.setAttribute("USERNAME", username);
-            request.getRequestDispatcher("home").forward(request, response);
-        } else {
-            msg = "Login Failed!!";
-        }
-        request.setAttribute("MESSAGE", msg);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        doGet(request, response);
     }
 
     /**
